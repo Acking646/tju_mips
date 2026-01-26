@@ -29,7 +29,7 @@ uint32_t instr;
 op_fun opcode_table [64] = {
 /* 0x00 */	_2byte_esc, bgez, inv, inv,
 /* 0x04 */	beq, bne, blez, inv,     /* beq(0x04), bne(0x05), blez(0x06) */
-/* 0x08 */	inv, addiu, inv, inv,    /* addiu(0x09) */
+/* 0x08 */	addi, addiu, inv, inv,    /* addiu(0x09) */
 /* 0x0c */	andi, ori, inv, lui,     /* andi(0x0c), ori(0x0d); lui(0x0f) */
 /* 0x10 */	inv, inv, temu_trap, inv,
 /* 0x14 */	inv, inv, inv, inv,
@@ -48,9 +48,9 @@ op_fun opcode_table [64] = {
 /* 【关键修改】加上 static，确保只在这个文件内生效，防止跟 special.c 冲突 */
 /* R-type 指令的 func 码跳转表 (opcode=0x00) - 17条指令译码跳转表 */
 static op_fun _2byte_opcode_table [64] = {
-/* 0x00 */	sll, inv, inv, inv,     /* sll(0x00) */
-/* 0x04 */	sllv, inv, inv, srav,    /* srav(0x07) */
-/* 0x08 */	inv, inv, inv, inv, 
+/* 0x00 */	sll, inv, srl, sra,     /* sll(0x00) */
+/* 0x04 */	sllv, inv, srlv, srav,    /* srav(0x07) */
+/* 0x08 */      jr, jalr, inv, inv, 
 /* 0x0c */	inv, inv, inv, inv, 
 /* 0x10 */	inv, inv, inv, inv, 
 /* 0x14 */	inv, inv, inv, inv, 

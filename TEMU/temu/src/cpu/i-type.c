@@ -192,6 +192,18 @@ make_helper(sb) {
 	sprintf(assembly, "sb    %s,   %d(%s)", REG_NAME(rt), offset, REG_NAME(rs));
 }
 
+make_helper(addi) {
+    int rs = (instr & RS_MASK) >> (RT_SIZE + IMM_SIZE);
+    int rt = (instr & RT_MASK) >> IMM_SIZE;
+    int16_t imm = (int16_t)(instr & IMM_MASK); 
+    
+    // 符号扩展加法
+    reg_w(rt) = reg_w(rs) + (int32_t)imm; 
+    
+    sprintf(assembly, "addi  %s, %s, 0x%04x", REG_NAME(rt), REG_NAME(rs), (uint16_t)imm);
+    // 注意：不要写 return 4;
+}
+
 // //andi：ANDI rt, rs, imm
 // //寄存器 rs 中的值与 0 扩展至 32 位的立即数 imm 按位逻辑与，结果写入寄存器 rt 中
 // make_helper(andi){

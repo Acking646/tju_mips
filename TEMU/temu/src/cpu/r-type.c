@@ -166,3 +166,64 @@ make_helper(srav) {
     log_golden_trace(cpu.pc, rd, reg_w(rd));
     sprintf(assembly, "srav  %s,   %s,   %s", REG_NAME(rd), REG_NAME(rt), REG_NAME(rs));
 }
+
+/* 1. 算术右移 sra */
+make_helper(sra) {
+    int rt = (instr & RT_MASK) >> (RD_SIZE + SHAMT_SIZE + FUNC_SIZE);
+    int rd = (instr & RD_MASK) >> (SHAMT_SIZE + FUNC_SIZE);
+    int sa = (instr & SHAMT_MASK) >> FUNC_SIZE;
+
+    // 强转 int32_t 进行算术右移(补符号位)
+    reg_w(rd) = (int32_t)reg_w(rt) >> sa;
+    
+    sprintf(assembly, "sra   %s, %s, %d", REG_NAME(rd), REG_NAME(rt), sa);
+}
+
+/* 2. 寄存器跳转链接 jalr */
+make_helper(jalr) {
+    int rs = (instr & RS_MASK) >> (RT_SIZE + IMM_SIZE);
+    int rd = (instr & RD_MASK) >> (SHAMT_SIZE + FUNC_SIZE);
+    uint32_t target = reg_w(rs);
+
+    // 保存返回地址 PC+8
+    reg_w(rd) = cpu.pc + 8;
+    
+    // 跳转 (减4是为了抵消主循环的自动+4)
+    cpu.pc = target - 4;
+
+    sprintf(assembly, "jalr  %s, %s", REG_NAME(rd), REG_NAME(rs));
+}
+
+/* 3. 逻辑右移 srl */
+make_helper(srl) {
+    int rt = (instr & RT_MASK) >> (RD_SIZE + SHAMT_SIZE + FUNC_SIZE);
+    int rd = (instr & RD_MASK) >> (SHAMT_SIZE + FUNC_SIZE);
+    int sa = (instr & SHAMT_MASK) >> FUNC_SIZE;
+
+    // 无符号右移(补0)
+    reg_w(rd) = reg_w(rt) >> sa;
+
+    sprintf(assembly, "srl   %s, %s, %d", REG_NAME(rd), REG_NAME(rt), sa);
+}
+
+/* 4. 变量逻辑右移 srlv */
+make_helper(srlv) {
+    int rs = (instr & RS_MASK) >> (RT_SIZE + IMM_SIZE);
+    int rt = (instr & RT_MASK) >> IMM_SIZE;
+    int rd = (instr & RD_MASK) >> (SHAMT_SIZE + FUNC_SIZE);
+
+    int sa = reg_w(rs) & 0x1F;
+    reg_w(rd) = reg_w(rt) >> sa;
+
+    sprintf(assembly, "srlv  %s, %s, %s", REG_NAME(rd), REG_NAME(rt), REG_NAME(rs));
+}
+
+/* 5. 寄存器跳转 jr */
+make_helper(jr) {
+    int rs = (instr & RS_MASK) >> (RT_SIZE + IMM_SIZE);
+    
+    // 跳转 (减4是为了抵消主循环的PC+4)
+    cpu.pc = reg_w(rs) - 4;
+
+    sprintf(assembly, "jr    %s", REG_NAME(rs));
+}

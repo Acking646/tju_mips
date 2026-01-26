@@ -1,0 +1,8 @@
+       0:   20 08 ff ff         addi  $t0, $zero, 0xffff
+       4:   21 09 00 01         addi  $t1, $t0, 0x0001
+       8:   3c 0a 80 00         lui   $t2,   0x8000
+       c:   00 0a 59 03         sra   $t3, $t2, 4
+      10:   3c 0c 80 00         lui   $t4,   0x8000
+      14:   25 8c 00 28         addiu $t4,   $t4,   40
+      18:   01 80 f8 09         jalr  $ra, $t4
+      28:   4a 00 00 00         jalr  $ra, $t4

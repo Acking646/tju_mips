@@ -13,4 +13,5 @@ make_helper(lw);
 make_helper(sw);
 make_helper(lb);
 make_helper(sb);
+make_helper(addi);
 #endif
