@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Jan 28 22:07:26 2026
+# Process ID: 22952
+# Current directory: D:/Vivado/projects/tju_mips/CPU/Mcpu
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent30580 D:\Vivado\projects\tju_mips\CPU\Mcpu\MiniMIPS_Lite.xpr
+# Log file: D:/Vivado/projects/tju_mips/CPU/Mcpu/vivado.log
+# Journal file: D:/Vivado/projects/tju_mips/CPU/Mcpu\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/Xilinx/Vivado/2018.3/data/ip'.

@@ -33,6 +33,7 @@
 `define LOGIC           3'b010
 `define MOVE            3'b011
 `define SHIFT           3'b100
+`define JUMP            3'b101              // [补全] JALR 需要用到这个跳转类型
 
 // 内部操作码aluop
 `define MINIMIPS32_LUI             8'h05
@@ -51,6 +52,16 @@
 `define MINIMIPS32_LW              8'h92
 `define MINIMIPS32_SB              8'h98
 `define MINIMIPS32_SW              8'h9A
+
+// [补全] 基础指令缺失的 ALU 操作码 (为了配合 id_stage.sv)
+`define MINIMIPS32_SRL             8'h12    // 逻辑右移 (R-type 基础指令)
+`define MINIMIPS32_XOR             8'h1E    // 异或 (R-type 基础指令)
+`define MINIMIPS32_NOR             8'h1F    // 或非 (R-type 基础指令)
+
+// [新增] 3条随机指令的 ALU 操作码定义
+`define MINIMIPS32_ADDI            8'h20    // ADDI 指令 (算术加)
+`define MINIMIPS32_SRA             8'h03    // SRA 指令 (算术右移)
+`define MINIMIPS32_JALR            8'h09    // JALR 指令 (跳转链接)
 
 /*------------------- 通用寄存器堆参数 -------------------*/
 `define REG_BUS         31: 0               // 寄存器数据宽度

@@ -1,8 +1,8 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Fri Dec 12 11:41:22 2025
-// Host        : LAPTOP-476JT8H0 running 64-bit major release  (build 9200)
+// Date        : Wed Jan 28 21:50:16 2026
+// Host        : LAPTOP-V7B0SNFS running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top inst_rom -prefix
 //               inst_rom_ inst_rom_sim_netlist.v
 // Design      : inst_rom
@@ -52,9 +52,9 @@ module inst_rom
   (* c_has_qspo_rst = "0" *) 
   (* c_has_qspo_srst = "0" *) 
   (* c_has_spo = "1" *) 
-  (* c_mem_init_file = "no_coe_file_loaded" *) 
+  (* c_mem_init_file = "inst_rom.mif" *) 
   (* c_parser_type = "1" *) 
-  (* c_read_mif = "0" *) 
+  (* c_read_mif = "1" *) 
   (* c_reg_a_d_inputs = "0" *) 
   (* c_sync_enable = "1" *) 
   (* c_width = "32" *) 
@@ -85,9 +85,9 @@ endmodule
 (* C_HAS_QDPO_CLK = "0" *) (* C_HAS_QDPO_RST = "0" *) (* C_HAS_QDPO_SRST = "0" *) 
 (* C_HAS_QSPO = "0" *) (* C_HAS_QSPO_CE = "0" *) (* C_HAS_QSPO_RST = "0" *) 
 (* C_HAS_QSPO_SRST = "0" *) (* C_HAS_SPO = "1" *) (* C_HAS_WE = "0" *) 
-(* C_MEM_INIT_FILE = "no_coe_file_loaded" *) (* C_MEM_TYPE = "0" *) (* C_PARSER_TYPE = "1" *) 
+(* C_MEM_INIT_FILE = "inst_rom.mif" *) (* C_MEM_TYPE = "0" *) (* C_PARSER_TYPE = "1" *) 
 (* C_PIPELINE_STAGES = "0" *) (* C_QCE_JOINED = "0" *) (* C_QUALIFY_WE = "0" *) 
-(* C_READ_MIF = "0" *) (* C_REG_A_D_INPUTS = "0" *) (* C_REG_DPRA_INPUT = "0" *) 
+(* C_READ_MIF = "1" *) (* C_REG_A_D_INPUTS = "0" *) (* C_REG_DPRA_INPUT = "0" *) 
 (* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "32" *) 
 module inst_rom_dist_mem_gen_v8_0_12
    (a,
@@ -126,6 +126,8 @@ module inst_rom_dist_mem_gen_v8_0_12
   output [31:0]qdpo;
 
   wire \<const0> ;
+  wire [13:0]a;
+  wire [31:0]\^spo ;
 
   assign dpo[31] = \<const0> ;
   assign dpo[30] = \<const0> ;
@@ -223,40 +225,360 @@ module inst_rom_dist_mem_gen_v8_0_12
   assign qspo[2] = \<const0> ;
   assign qspo[1] = \<const0> ;
   assign qspo[0] = \<const0> ;
-  assign spo[31] = \<const0> ;
+  assign spo[31] = \^spo [31];
   assign spo[30] = \<const0> ;
-  assign spo[29] = \<const0> ;
-  assign spo[28] = \<const0> ;
-  assign spo[27] = \<const0> ;
-  assign spo[26] = \<const0> ;
-  assign spo[25] = \<const0> ;
+  assign spo[29:25] = \^spo [29:25];
   assign spo[24] = \<const0> ;
-  assign spo[23] = \<const0> ;
-  assign spo[22] = \<const0> ;
-  assign spo[21] = \<const0> ;
-  assign spo[20] = \<const0> ;
-  assign spo[19] = \<const0> ;
-  assign spo[18] = \<const0> ;
-  assign spo[17] = \<const0> ;
-  assign spo[16] = \<const0> ;
-  assign spo[15] = \<const0> ;
-  assign spo[14] = \<const0> ;
-  assign spo[13] = \<const0> ;
-  assign spo[12] = \<const0> ;
-  assign spo[11] = \<const0> ;
-  assign spo[10] = \<const0> ;
-  assign spo[9] = \<const0> ;
-  assign spo[8] = \<const0> ;
-  assign spo[7] = \<const0> ;
-  assign spo[6] = \<const0> ;
-  assign spo[5] = \<const0> ;
-  assign spo[4] = \<const0> ;
-  assign spo[3] = \<const0> ;
-  assign spo[2] = \<const0> ;
-  assign spo[1] = \<const0> ;
-  assign spo[0] = \<const0> ;
+  assign spo[23:0] = \^spo [23:0];
   GND GND
        (.G(\<const0> ));
+  inst_rom_dist_mem_gen_v8_0_12_synth \synth_options.dist_mem_inst 
+       (.a(a),
+        .spo({\^spo [31],\^spo [29:25],\^spo [23:0]}));
+endmodule
+
+module inst_rom_dist_mem_gen_v8_0_12_synth
+   (spo,
+    a);
+  output [29:0]spo;
+  input [13:0]a;
+
+  wire [13:0]a;
+  wire [29:0]spo;
+
+  inst_rom_rom \gen_rom.rom_inst 
+       (.a(a),
+        .spo(spo));
+endmodule
+
+module inst_rom_rom
+   (spo,
+    a);
+  output [29:0]spo;
+  input [13:0]a;
+
+  wire [13:0]a;
+  wire [29:0]spo;
+  wire \spo[31]_INST_0_i_1_n_0 ;
+  wire \spo[31]_INST_0_i_2_n_0 ;
+
+  LUT6 #(
+    .INIT(64'h100D00008A780000)) 
+    \spo[0]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[2]),
+        .I3(a[0]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[3]),
+        .O(spo[0]));
+  LUT6 #(
+    .INIT(64'h000C000001100000)) 
+    \spo[10]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[2]),
+        .I3(a[0]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[3]),
+        .O(spo[10]));
+  LUT6 #(
+    .INIT(64'h10D000106040C000)) 
+    \spo[11]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(\spo[31]_INST_0_i_1_n_0 ),
+        .I3(a[3]),
+        .I4(a[0]),
+        .I5(a[2]),
+        .O(spo[11]));
+  LUT6 #(
+    .INIT(64'h054CC55500000000)) 
+    \spo[12]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[2]),
+        .I3(a[0]),
+        .I4(a[3]),
+        .I5(\spo[31]_INST_0_i_1_n_0 ),
+        .O(spo[12]));
+  LUT6 #(
+    .INIT(64'h115C0000D0500000)) 
+    \spo[13]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[2]),
+        .I3(a[0]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[3]),
+        .O(spo[13]));
+  LUT6 #(
+    .INIT(64'h158100005D100000)) 
+    \spo[14]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[2]),
+        .I3(a[3]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[0]),
+        .O(spo[14]));
+  LUT6 #(
+    .INIT(64'h010C0000A0100000)) 
+    \spo[15]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[2]),
+        .I3(a[0]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[3]),
+        .O(spo[15]));
+  LUT6 #(
+    .INIT(64'h4550052700000000)) 
+    \spo[16]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[2]),
+        .I3(a[0]),
+        .I4(a[3]),
+        .I5(\spo[31]_INST_0_i_1_n_0 ),
+        .O(spo[16]));
+  LUT6 #(
+    .INIT(64'h0100000020000200)) 
+    \spo[17]_INST_0 
+       (.I0(a[4]),
+        .I1(a[2]),
+        .I2(a[0]),
+        .I3(\spo[31]_INST_0_i_1_n_0 ),
+        .I4(a[3]),
+        .I5(a[1]),
+        .O(spo[17]));
+  LUT6 #(
+    .INIT(64'h107000D020000020)) 
+    \spo[18]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(\spo[31]_INST_0_i_1_n_0 ),
+        .I3(a[3]),
+        .I4(a[0]),
+        .I5(a[2]),
+        .O(spo[18]));
+  LUT6 #(
+    .INIT(64'h0000000030004200)) 
+    \spo[19]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[3]),
+        .I3(\spo[31]_INST_0_i_1_n_0 ),
+        .I4(a[0]),
+        .I5(a[2]),
+        .O(spo[19]));
+  LUT6 #(
+    .INIT(64'h125D000044100000)) 
+    \spo[1]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[2]),
+        .I3(a[0]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[3]),
+        .O(spo[1]));
+  LUT6 #(
+    .INIT(64'h0404448000000000)) 
+    \spo[20]_INST_0 
+       (.I0(a[3]),
+        .I1(\spo[31]_INST_0_i_1_n_0 ),
+        .I2(a[0]),
+        .I3(a[2]),
+        .I4(a[1]),
+        .I5(a[4]),
+        .O(spo[20]));
+  LUT6 #(
+    .INIT(64'h0519000004440000)) 
+    \spo[21]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[3]),
+        .I3(a[2]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[0]),
+        .O(spo[21]));
+  LUT6 #(
+    .INIT(64'h0000000000002000)) 
+    \spo[22]_INST_0 
+       (.I0(a[1]),
+        .I1(a[3]),
+        .I2(\spo[31]_INST_0_i_1_n_0 ),
+        .I3(a[0]),
+        .I4(a[2]),
+        .I5(a[4]),
+        .O(spo[22]));
+  LUT6 #(
+    .INIT(64'h0400880000000000)) 
+    \spo[23]_INST_0 
+       (.I0(a[4]),
+        .I1(a[2]),
+        .I2(a[0]),
+        .I3(\spo[31]_INST_0_i_1_n_0 ),
+        .I4(a[3]),
+        .I5(a[1]),
+        .O(spo[23]));
+  LUT5 #(
+    .INIT(32'h20000000)) 
+    \spo[25]_INST_0 
+       (.I0(a[1]),
+        .I1(a[3]),
+        .I2(\spo[31]_INST_0_i_1_n_0 ),
+        .I3(a[2]),
+        .I4(a[4]),
+        .O(spo[24]));
+  LUT6 #(
+    .INIT(64'h4028000000870000)) 
+    \spo[26]_INST_0 
+       (.I0(a[4]),
+        .I1(a[0]),
+        .I2(a[1]),
+        .I3(a[3]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[2]),
+        .O(spo[25]));
+  LUT6 #(
+    .INIT(64'h4200000000004300)) 
+    \spo[27]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[3]),
+        .I3(\spo[31]_INST_0_i_1_n_0 ),
+        .I4(a[0]),
+        .I5(a[2]),
+        .O(spo[26]));
+  LUT6 #(
+    .INIT(64'h0020008010B0C010)) 
+    \spo[28]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(\spo[31]_INST_0_i_1_n_0 ),
+        .I3(a[3]),
+        .I4(a[0]),
+        .I5(a[2]),
+        .O(spo[27]));
+  LUT6 #(
+    .INIT(64'h430421B900000000)) 
+    \spo[29]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[2]),
+        .I3(a[0]),
+        .I4(a[3]),
+        .I5(\spo[31]_INST_0_i_1_n_0 ),
+        .O(spo[28]));
+  LUT6 #(
+    .INIT(64'h452000000DD30000)) 
+    \spo[2]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[3]),
+        .I3(a[2]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[0]),
+        .O(spo[2]));
+  LUT6 #(
+    .INIT(64'h4000000000000200)) 
+    \spo[31]_INST_0 
+       (.I0(a[4]),
+        .I1(a[2]),
+        .I2(a[0]),
+        .I3(\spo[31]_INST_0_i_1_n_0 ),
+        .I4(a[3]),
+        .I5(a[1]),
+        .O(spo[29]));
+  LUT4 #(
+    .INIT(16'h0004)) 
+    \spo[31]_INST_0_i_1 
+       (.I0(a[10]),
+        .I1(\spo[31]_INST_0_i_2_n_0 ),
+        .I2(a[8]),
+        .I3(a[11]),
+        .O(\spo[31]_INST_0_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000000000001)) 
+    \spo[31]_INST_0_i_2 
+       (.I0(a[9]),
+        .I1(a[6]),
+        .I2(a[12]),
+        .I3(a[13]),
+        .I4(a[5]),
+        .I5(a[7]),
+        .O(\spo[31]_INST_0_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h024C000081100000)) 
+    \spo[3]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[2]),
+        .I3(a[0]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[3]),
+        .O(spo[3]));
+  LUT6 #(
+    .INIT(64'h010C011100000000)) 
+    \spo[4]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[2]),
+        .I3(a[0]),
+        .I4(a[3]),
+        .I5(\spo[31]_INST_0_i_1_n_0 ),
+        .O(spo[4]));
+  LUT6 #(
+    .INIT(64'h1075355500000000)) 
+    \spo[5]_INST_0 
+       (.I0(a[4]),
+        .I1(a[0]),
+        .I2(a[1]),
+        .I3(a[3]),
+        .I4(a[2]),
+        .I5(\spo[31]_INST_0_i_1_n_0 ),
+        .O(spo[5]));
+  LUT6 #(
+    .INIT(64'h0031000009C00000)) 
+    \spo[6]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[3]),
+        .I3(a[2]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[0]),
+        .O(spo[6]));
+  LUT6 #(
+    .INIT(64'h030C000000100000)) 
+    \spo[7]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[2]),
+        .I3(a[0]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[3]),
+        .O(spo[7]));
+  LUT6 #(
+    .INIT(64'h110001004C000000)) 
+    \spo[8]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[0]),
+        .I3(\spo[31]_INST_0_i_1_n_0 ),
+        .I4(a[3]),
+        .I5(a[2]),
+        .O(spo[8]));
+  LUT6 #(
+    .INIT(64'h002C000001110000)) 
+    \spo[9]_INST_0 
+       (.I0(a[4]),
+        .I1(a[1]),
+        .I2(a[0]),
+        .I3(a[2]),
+        .I4(\spo[31]_INST_0_i_1_n_0 ),
+        .I5(a[3]),
+        .O(spo[9]));
 endmodule
 `ifndef GLBL
 `define GLBL

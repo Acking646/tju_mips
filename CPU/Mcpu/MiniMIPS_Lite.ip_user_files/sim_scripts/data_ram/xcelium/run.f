@@ -1,8 +1,14 @@
+-makelib xcelium_lib/xil_defaultlib -sv \
+  "D:/Vivado/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+-endlib
+-makelib xcelium_lib/xpm \
+  "D:/Vivado/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_VCOMP.vhd" \
+-endlib
 -makelib xcelium_lib/dist_mem_gen_v8_0_12 \
   "../../../ipstatic/simulation/dist_mem_gen_v8_0.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../../MiniMIPS32_Lite_FullSyS.srcs/sources_1/ip/data_ram/sim/data_ram.v" \
+  "../../../../MiniMIPS_Lite.srcs/sources_1/ip/data_ram/sim/data_ram.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

@@ -1,0 +1,459 @@
+
+*** Running vivado
+    with args -log MiniMIPS32_Lite_FullSyS.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source MiniMIPS32_Lite_FullSyS.tcl
+
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source MiniMIPS32_Lite_FullSyS.tcl -notrace
+Command: synth_design -top MiniMIPS32_Lite_FullSyS -part xc7z020clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 23016 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 389.664 ; gain = 101.012
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'MiniMIPS32_Lite_FullSyS' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/MiniMIPS32_Lite_FullSyS.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'clkdiv' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.runs/synth_1/.Xil/Vivado-8532-LAPTOP-V7B0SNFS/realtime/clkdiv_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clkdiv' (1#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.runs/synth_1/.Xil/Vivado-8532-LAPTOP-V7B0SNFS/realtime/clkdiv_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'MiniMIPS32_Lite' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/MiniMIPS32_Lite.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'if_stage' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/if_stage.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'if_stage' (2#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/if_stage.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'ifid_reg' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/ifid_reg.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'ifid_reg' (3#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/ifid_reg.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'id_stage' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/id_stage.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'id_stage' (4#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/id_stage.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/regfile.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (5#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/regfile.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'idexe_reg' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/idexe_reg.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'idexe_reg' (6#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/idexe_reg.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'exe_stage' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/exe_stage.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'exe_stage' (7#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/exe_stage.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'exemem_reg' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/exemem_reg.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'exemem_reg' (8#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/exemem_reg.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'mem_stage' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/mem_stage.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'mem_stage' (9#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/mem_stage.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'memwb_reg' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/memwb_reg.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'memwb_reg' (10#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/memwb_reg.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'wb_stage' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/wb_stage.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'wb_stage' (11#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/wb_stage.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'MiniMIPS32_Lite' (12#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/MiniMIPS32_Lite.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'inst_rom' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.runs/synth_1/.Xil/Vivado-8532-LAPTOP-V7B0SNFS/realtime/inst_rom_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'inst_rom' (13#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.runs/synth_1/.Xil/Vivado-8532-LAPTOP-V7B0SNFS/realtime/inst_rom_stub.v:6]
+WARNING: [Synth 8-689] width (16) of port connection 'a' does not match port width (14) of module 'inst_rom' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/MiniMIPS32_Lite_FullSyS.sv:70]
+INFO: [Synth 8-6157] synthesizing module 'data_ram' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.runs/synth_1/.Xil/Vivado-8532-LAPTOP-V7B0SNFS/realtime/data_ram_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'data_ram' (14#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.runs/synth_1/.Xil/Vivado-8532-LAPTOP-V7B0SNFS/realtime/data_ram_stub.v:6]
+WARNING: [Synth 8-689] width (16) of port connection 'a' does not match port width (14) of module 'data_ram' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/MiniMIPS32_Lite_FullSyS.sv:79]
+INFO: [Synth 8-6155] done synthesizing module 'MiniMIPS32_Lite_FullSyS' (15#1) [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/MiniMIPS32_Lite_FullSyS.sv:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 445.535 ; gain = 156.883
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 445.535 ; gain = 156.883
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 445.535 ; gain = 156.883
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/inst_rom/inst_rom/inst_rom_in_context.xdc] for cell 'inst_rom0'
+Finished Parsing XDC File [d:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/inst_rom/inst_rom/inst_rom_in_context.xdc] for cell 'inst_rom0'
+Parsing XDC File [d:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/data_ram/data_ram/data_ram_in_context.xdc] for cell 'data_ram0'
+Finished Parsing XDC File [d:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/data_ram/data_ram/data_ram_in_context.xdc] for cell 'data_ram0'
+Parsing XDC File [d:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/clkdiv/clkdiv/clkdiv_in_context.xdc] for cell 'clocking0'
+Finished Parsing XDC File [d:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/clkdiv/clkdiv/clkdiv_in_context.xdc] for cell 'clocking0'
+Parsing XDC File [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 818.996 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 819.348 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 819.348 ; gain = 0.352
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 819.348 ; gain = 530.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 819.348 ; gain = 530.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for sys_clk. (constraint file  d:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/clkdiv/clkdiv/clkdiv_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for sys_clk. (constraint file  d:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/clkdiv/clkdiv/clkdiv_in_context.xdc, line 4).
+Applied set_property DONT_TOUCH = true for inst_rom0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for data_ram0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for clocking0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 819.348 ; gain = 530.695
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "id_alutype_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "id_aluop_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "id_wreg_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "regs_reg[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[20]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[21]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[22]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[23]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[24]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[25]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[26]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[27]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[28]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[29]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[30]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "regs_reg[31]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/exe_stage.sv:97]
+INFO: [Synth 8-5546] ROM "data_wen_o" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 819.348 ; gain = 530.695
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   3 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 43    
+	                8 Bit    Registers := 2     
+	                5 Bit    Registers := 3     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 31    
+	  33 Input     32 Bit        Muxes := 2     
+	   6 Input     32 Bit        Muxes := 2     
+	   3 Input     32 Bit        Muxes := 3     
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 18    
+	   2 Input      5 Bit        Muxes := 19    
+	   2 Input      3 Bit        Muxes := 16    
+	   6 Input      3 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 51    
+	   3 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module MiniMIPS32_Lite_FullSyS 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module ifid_reg 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+Module id_stage 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 22    
+	   2 Input      8 Bit        Muxes := 18    
+	   2 Input      5 Bit        Muxes := 18    
+	   2 Input      3 Bit        Muxes := 16    
+	   2 Input      1 Bit        Muxes := 18    
+Module regfile 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 32    
++---Muxes : 
+	  33 Input     32 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 32    
+Module idexe_reg 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module exe_stage 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Muxes : 
+	   6 Input     32 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 3     
+	   3 Input     32 Bit        Muxes := 2     
+	   4 Input     32 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 2     
+Module exemem_reg 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module mem_stage 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+Module memwb_reg 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5545] ROM "id_alutype_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "id_aluop_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "id_wreg_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "id_alutype_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "id_aluop_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "id_wreg_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-4471] merging register 'ifid_reg0/id_debug_wb_pc_reg[31:0]' into 'ifid_reg0/id_pc_reg[31:0]' [D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/new/ifid_reg.sv:25]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:04 ; elapsed = 00:00:13 . Memory (MB): peak = 819.348 ; gain = 530.695
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'clocking0/clk_out' to pin 'clocking0/bbstub_clk_out/O'
+INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:05 ; elapsed = 00:00:18 . Memory (MB): peak = 819.348 ; gain = 530.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:23 . Memory (MB): peak = 988.020 ; gain = 699.367
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 988.020 ; gain = 699.367
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 988.020 ; gain = 699.367
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 988.020 ; gain = 699.367
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 988.020 ; gain = 699.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 988.020 ; gain = 699.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:25 . Memory (MB): peak = 988.020 ; gain = 699.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:08 ; elapsed = 00:00:25 . Memory (MB): peak = 988.020 ; gain = 699.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clkdiv        |         1|
+|2     |inst_rom      |         1|
+|3     |data_ram      |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |clkdiv   |     1|
+|2     |data_ram |     1|
+|3     |inst_rom |     1|
+|4     |CARRY4   |    12|
+|5     |LUT1     |     4|
+|6     |LUT2     |    58|
+|7     |LUT3     |   277|
+|8     |LUT4     |    43|
+|9     |LUT5     |    66|
+|10    |LUT6     |   179|
+|11    |MUXF7    |     6|
+|12    |FDCE     |     1|
+|13    |FDRE     |   171|
+|14    |FDSE     |    14|
+|15    |IBUF     |     1|
++------+---------+------+
+
+Report Instance Areas: 
++------+-------------------+----------------+------+
+|      |Instance           |Module          |Cells |
++------+-------------------+----------------+------+
+|1     |top                |                |   898|
+|2     |  MiniMIPS32_Lite0 |MiniMIPS32_Lite |   829|
+|3     |    exe_stage0     |exe_stage       |     5|
+|4     |    exemem_reg0    |exemem_reg      |   101|
+|5     |    idexe_reg0     |idexe_reg       |   240|
+|6     |    if_stage0      |if_stage        |    21|
+|7     |    ifid_reg0      |ifid_reg        |   452|
+|8     |    regfile0       |regfile         |    10|
++------+-------------------+----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:08 ; elapsed = 00:00:25 . Memory (MB): peak = 988.020 ; gain = 699.367
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:06 ; elapsed = 00:00:20 . Memory (MB): peak = 988.020 ; gain = 325.555
+Synthesis Optimization Complete : Time (s): cpu = 00:00:08 ; elapsed = 00:00:25 . Memory (MB): peak = 988.020 ; gain = 699.367
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 988.020 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+87 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:27 . Memory (MB): peak = 988.020 ; gain = 706.586
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 988.020 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.runs/synth_1/MiniMIPS32_Lite_FullSyS.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file MiniMIPS32_Lite_FullSyS_utilization_synth.rpt -pb MiniMIPS32_Lite_FullSyS_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Jan 28 17:35:04 2026...
