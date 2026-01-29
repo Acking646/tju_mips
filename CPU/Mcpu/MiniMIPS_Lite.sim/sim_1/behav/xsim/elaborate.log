@@ -14,6 +14,7 @@ Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
 Compiling module unisims_ver.BUFG
 Compiling module xil_defaultlib.clkdiv_clk_wiz
 Compiling module xil_defaultlib.clkdiv
+Compiling module xil_defaultlib.ctrl
 Compiling module xil_defaultlib.if_stage
 Compiling module xil_defaultlib.ifid_reg
 Compiling module xil_defaultlib.id_stage

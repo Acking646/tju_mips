@@ -6,20 +6,21 @@ module MiniMIPS32_Lite(
     
     output wire [`INST_ADDR_BUS] iaddr,
     input  wire [`INST_BUS]      inst,
-    
     output wire                  data_wen,    
     output wire [`WORD_BUS]      data_addr,   
     output wire [`WORD_BUS]      data_wdata,  
     input  wire [`WORD_BUS]      data_rdata,  
-
     output wire [`INST_ADDR_BUS]  debug_wb_pc,       
     output wire                   debug_wb_rf_wen,   
     output wire [`REG_ADDR_BUS  ] debug_wb_rf_wnum,  
     output wire [`WORD_BUS      ] debug_wb_rf_wdata  
     );
 
-    wire [`WORD_BUS      ] pc;
+    // [新增] 暂停信号链
+    wire [5:0] stall;
+    wire       stallreq_from_id;
 
+    wire [`WORD_BUS      ] pc;
     wire [`WORD_BUS      ] id_pc_i;
     wire [`INST_BUS      ] id_inst_i;
     
@@ -38,7 +39,6 @@ module MiniMIPS32_Lite(
     wire                   id_wreg_o;
     wire [`REG_ADDR_BUS  ] id_wa_o;
     
-    // [新增 Fix 2] Store Data 连线
     wire [`REG_BUS       ] id_store_data_o;
     wire [`REG_BUS       ] exe_store_data_i;
 
@@ -82,9 +82,19 @@ module MiniMIPS32_Lite(
     wire [`INST_ADDR_BUS]  mem_debug_wb_pc_o; 
     wire [`INST_ADDR_BUS]  wb_debug_wb_pc_i; 
 
+    // =========================================================
+    // 0. 实例化流控制器
+    // =========================================================
+    ctrl ctrl0(
+        .rst(cpu_rst_n),
+        .stallreq_from_id(stallreq_from_id),
+        .stall(stall)
+    );
+
     // 1. 取指阶段
     if_stage if_stage0(
         .cpu_clk_50M(cpu_clk_50M), .cpu_rst_n(cpu_rst_n),
+        .stall(stall), // [连] 暂停
         .pc(pc), 
         .branch_flag_i(branch_flag),
         .branch_target_i(branch_target),
@@ -94,11 +104,12 @@ module MiniMIPS32_Lite(
     
     ifid_reg ifid_reg0(
         .cpu_clk_50M(cpu_clk_50M), .cpu_rst_n(cpu_rst_n),
+        .stall(stall), // [连] 暂停
         .inst(inst), .if_pc(pc), .if_debug_wb_pc(if_debug_wb_pc),
         .id_inst(id_inst_i), .id_pc(id_pc_i), .id_debug_wb_pc(id_debug_wb_pc_i)
     );
 
-    // 2. 译码阶段 (连接 Forwarding 信号)
+    // 2. 译码阶段
     id_stage id_stage0(
         .id_pc_i(id_pc_i), 
         .id_inst_i(id_inst_i),
@@ -111,17 +122,14 @@ module MiniMIPS32_Lite(
         .branch_flag_o(branch_flag),
         .branch_target_o(branch_target),
         
-        // 来自 EXE 阶段的旁路
         .ex_wreg_i(exe_wreg_o), .ex_wd_i(exe_wd_o), .ex_wa_i(exe_wa_o),
-        
-        // 来自 MEM 阶段的旁路
         .mem_wreg_i(mem_wreg_o), .mem_wd_i(mem_dreg_o), .mem_wa_i(mem_wa_o),
-        
-        // [新增 Fix 1] 来自 WB 阶段的旁路
         .wb_wreg_i(wb_wreg_o), .wb_wd_i(wb_wd_o), .wb_wa_i(wb_wa_o),
-        
-        // [新增 Fix 2] Store Data 输出
         .id_store_data_o(id_store_data_o),
+        
+        // [新增] Load-Use 检测
+        .ex_aluop_i(exe_aluop_o), // 来自 EXE 的当前指令操作码
+        .stallreq(stallreq_from_id),
         
         .debug_wb_pc(id_debug_wb_pc_o)
     );
@@ -135,14 +143,11 @@ module MiniMIPS32_Lite(
     
     idexe_reg idexe_reg0(
         .cpu_clk_50M(cpu_clk_50M), .cpu_rst_n(cpu_rst_n), 
+        .stall(stall), // [连] 暂停
         .id_alutype(id_alutype_o), .id_aluop(id_aluop_o),
         .id_src1(id_src1_o), .id_src2(id_src2_o),
         .id_wa(id_wa_o), .id_wreg(id_wreg_o),
-        
-        // [新增 Fix 2] 传递 Store Data
-        .id_store_data(id_store_data_o),
-        .exe_store_data(exe_store_data_i),
-        
+        .id_store_data(id_store_data_o), .exe_store_data(exe_store_data_i),
         .id_debug_wb_pc(id_debug_wb_pc_o),
         .exe_alutype(exe_alutype_i), .exe_aluop(exe_aluop_i),
         .exe_src1(exe_src1_i), .exe_src2(exe_src2_i), 
@@ -150,16 +155,13 @@ module MiniMIPS32_Lite(
         .exe_debug_wb_pc(exe_debug_wb_pc_i)
     );
     
-    // 3. 执行阶段
+    // 3. 执行阶段 (保持不变)
     exe_stage exe_stage0(
         .rst(cpu_rst_n), 
         .exe_alutype_i(exe_alutype_i), .exe_aluop_i(exe_aluop_i),
         .exe_src1_i(exe_src1_i), .exe_src2_i(exe_src2_i),
         .exe_wa_i(exe_wa_i), .exe_wreg_i(exe_wreg_i),
-        
-        // [新增 Fix 2] Store Data 输入
         .exe_store_data_i(exe_store_data_i),
-        
         .exe_debug_wb_pc(exe_debug_wb_pc_i),
         .exe_aluop_o(exe_aluop_o),
         .exe_wa_o(exe_wa_o), .exe_wreg_o(exe_wreg_o), .exe_wd_o(exe_wd_o),
@@ -179,7 +181,7 @@ module MiniMIPS32_Lite(
         .mem_debug_wb_pc(mem_debug_wb_pc_i)
     );
 
-    // 4. 访存阶段
+    // 4. 访存阶段 (保持不变)
     mem_stage mem_stage0(
         .rst(cpu_rst_n),
         .mem_aluop_i(mem_aluop_i),
@@ -203,7 +205,7 @@ module MiniMIPS32_Lite(
         .wb_debug_wb_pc(wb_debug_wb_pc_i)
     );
 
-    // 5. 写回阶段
+    // 5. 写回阶段 (保持不变)
     wb_stage wb_stage0(
         .wb_wa_i(wb_wa_i), .wb_wreg_i(wb_wreg_i), .wb_dreg_i(wb_dreg_i), 
         .wb_debug_wb_pc(wb_debug_wb_pc_i),
