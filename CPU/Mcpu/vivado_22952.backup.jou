@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Jan 28 22:07:26 2026
+# Process ID: 22952
+# Current directory: D:/Vivado/projects/tju_mips/CPU/Mcpu
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent30580 D:\Vivado\projects\tju_mips\CPU\Mcpu\MiniMIPS_Lite.xpr
+# Log file: D:/Vivado/projects/tju_mips/CPU/Mcpu/vivado.log
+# Journal file: D:/Vivado/projects/tju_mips/CPU/Mcpu\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.xpr
+update_compile_order -fileset sources_1
+reset_target all [get_files  D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/inst_rom/inst_rom.xci]
+export_ip_user_files -of_objects  [get_files  D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/inst_rom/inst_rom.xci] -sync -no_script -force -quiet
+generate_target all [get_files  D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/inst_rom/inst_rom.xci]
+catch { config_ip_cache -export [get_ips -all inst_rom] }
+export_ip_user_files -of_objects [get_files D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/inst_rom/inst_rom.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/inst_rom/inst_rom.xci]
+export_simulation -of_objects [get_files D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.srcs/sources_1/ip/inst_rom/inst_rom.xci] -directory D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.ip_user_files/sim_scripts -ip_user_files_dir D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.ip_user_files -ipstatic_source_dir D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.cache/compile_simlib/modelsim} {questa=D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.cache/compile_simlib/questa} {riviera=D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.cache/compile_simlib/riviera} {activehdl=D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+source tb_MiniMIPS32_Lite_FullSyS.tcl
+run all
+close_sim

@@ -4,10 +4,10 @@ Xilinx Vivado v2018.3 (64-bit) [Major: 2018, Minor: 3]
 SW Build: 2405991 on Thu Dec  6 23:38:27 MST 2018
 IP Build: 2404404 on Fri Dec  7 01:43:56 MST 2018
 
-Process ID (PID): 22952
+Process ID (PID): 6036
 License: Customer
 
-Current time: 	Wed Jan 28 22:07:36 CST 2026
+Current time: 	Thu Jan 29 09:37:29 CST 2026
 Time zone: 	China Standard Time (Asia/Shanghai)
 
 OS: Windows 10
@@ -18,7 +18,7 @@ Available processors (cores): 20
 Screen size: 2560x1600
 Screen resolution (DPI): 144
 Available screens: 1
-Available disk space: 135 GB
+Available disk space: 137 GB
 Default font: family=Dialog,name=Dialog,style=plain,size=18
 
 Java version: 	9.0.4 64-bit
@@ -46,7 +46,7 @@ Vivado layouts directory: C:/Users/LENOVO/AppData/Roaming/Xilinx/Vivado/2018.3/l
 PlanAhead jar file location: 	D:/Vivado/Xilinx/Vivado/2018.3/lib/classes/planAhead.jar
 Vivado log file location: 	D:/Vivado/projects/tju_mips/CPU/Mcpu/vivado.log
 Vivado journal file location: 	D:/Vivado/projects/tju_mips/CPU/Mcpu/vivado.jou
-Engine tmp dir: 	D:/Vivado/projects/tju_mips/CPU/Mcpu/.Xil/Vivado-22952-LAPTOP-V7B0SNFS
+Engine tmp dir: 	D:/Vivado/projects/tju_mips/CPU/Mcpu/.Xil/Vivado-6036-LAPTOP-V7B0SNFS
 
 Xilinx Environment Variables
 ----------------------------
@@ -57,21 +57,21 @@ XILINX_VIVADO: D:/Vivado/Xilinx/Vivado/2018.3
 XILINX_VIVADO_HLS: D:/Vivado/Xilinx/Vivado/2018.3
 
 
-GUI allocated memory:	185 MB
+GUI allocated memory:	131 MB
 GUI max memory:		3,072 MB
-Engine allocated memory: 737 MB
+Engine allocated memory: 597 MB
 
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
 */
 
 // TclEventType: START_GUI
-// TclEventType: PROJECT_OPEN_DIALOG
 // Tcl Message: start_gui 
 // TclEventType: PROJECT_OPEN_DIALOG
 // Opening Vivado Project: D:\Vivado\projects\tju_mips\CPU\Mcpu\MiniMIPS_Lite.xpr. Version: Vivado v2018.3 
 // bx (cp):  Open Project : addNotify
 // TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.xpr 
 // TclEventType: MSGMGR_MOVEMSG
 // TclEventType: FILE_SET_NEW
 // TclEventType: RUN_COMPLETED
@@ -90,17 +90,16 @@ Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
 // TclEventType: PROJECT_DASHBOARD_GADGET_NEW
 // TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
-// Tcl Message: open_project D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 612 MB. GUI used memory: 59 MB. Current time: 1/29/26, 9:37:31 AM CST
 // TclEventType: FILE_SET_CHANGE
 // TclEventType: PROJECT_NEW
-// [GUI Memory]: 97 MB (+99515kb) [00:00:06]
-// [Engine Memory]: 650 MB (+530614kb) [00:00:06]
-// [GUI Memory]: 118 MB (+16894kb) [00:00:06]
-// [GUI Memory]: 124 MB (+19kb) [00:00:07]
-// WARNING: HEventQueue.dispatchEvent() is taking  2106 ms.
-// [Engine Memory]: 737 MB (+56145kb) [00:00:08]
+// [GUI Memory]: 94 MB (+96087kb) [00:00:22]
+// [Engine Memory]: 622 MB (+500349kb) [00:00:22]
+// [GUI Memory]: 114 MB (+16539kb) [00:00:23]
+// [Engine Memory]: 657 MB (+4123kb) [00:00:25]
+// WARNING: HEventQueue.dispatchEvent() is taking  6621 ms.
+// [Engine Memory]: 714 MB (+26108kb) [00:00:26]
 // Tcl Message: open_project D:/Vivado/projects/tju_mips/CPU/Mcpu/MiniMIPS_Lite.xpr 
 // Tcl Message: Scanning sources... Finished scanning sources 
 // Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/Xilinx/Vivado/2018.3/data/ip'. 
-// HMemoryUtils.trashcanNow. Engine heap size: 740 MB. GUI used memory: 65 MB. Current time: 1/28/26, 10:07:37 PM CST
-// Project name: MiniMIPS_Lite; location: D:/Vivado/projects/tju_mips/CPU/Mcpu; part: xc7z020clg400-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 753.043 ; gain = 127.227 
