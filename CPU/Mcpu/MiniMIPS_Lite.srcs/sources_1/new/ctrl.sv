@@ -3,10 +3,10 @@
 module ctrl(
     input  wire                  rst,
     
-    // 来自 ID 阶段的 Load 冒险检测信号
+    // 来自 ID 阶段的 Load 暂停请求信号
     input  wire                  stallreq_from_id,
 
-    // 输出给各级流水线寄存器的暂停信号
+    // 产生流水线各阶段的暂停信号
     // stall[0]: PC
     // stall[1]: IF/ID
     // stall[2]: ID/EXE
@@ -20,11 +20,11 @@ module ctrl(
         if(rst == `RST_ENABLE) begin
             stall = 6'b000000;
         end else if(stallreq_from_id == `TRUE_V) begin
-            // 发生 Load-Use 冒险：
-            // 1. 冻结 PC (stall[0])
-            // 2. 冻结 IF/ID (stall[1])
-            // 3. 清空 ID/EXE (stall[2]) -> 插入 NOP 气泡
-            // 后面的阶段 (EXE/MEM, MEM/WB) 继续跑
+            // 处理 Load-Use 暂停：
+            // 1. 暂停 PC (stall[0])
+            // 2. 暂停 IF/ID (stall[1])
+            // 3. 暂停 ID/EXE (stall[2]) -> 插入 NOP 气泡
+            // 后续阶段 (EXE/MEM, MEM/WB) 正常运行
             stall = 6'b000111;
         end else begin
             stall = 6'b000000;
