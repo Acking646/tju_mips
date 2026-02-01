@@ -1,0 +1,15 @@
+80000000 T _start
+80000014 t label_equal_1
+8000002c t label_not_equal
+80000068 t jump_target_1
+80000090 t jump_target_2
+800000ac t loop_test
+800000c4 t outer_loop
+800000cc t inner_loop
+800000ec t conditional_test
+80000108 t _halt
+80000110 t function_test
+80000120 t function_test_2
+80010000 d loop_counter
+80010004 d test_value
+80010008 d branch_results

@@ -1,0 +1,8 @@
+80000000 T _start
+800000e4 t _halt
+80010000 d test_array
+80010014 d str_buffer
+80010024 d src_data
+8001002c d dest_data
+80010040 b stack_bottom
+80010140 b stack_top

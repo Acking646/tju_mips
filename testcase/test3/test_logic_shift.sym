@@ -1,0 +1,7 @@
+80000000 T _start
+80000094 t _halt
+80010000 d mask
+80010004 d shift_amount
+80010008 d logic_results
+80010028 d test_pattern1
+8001002c d test_pattern2
