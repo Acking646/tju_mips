@@ -17,6 +17,9 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {HDL-1065} -limit 10000
 create_project -in_memory -part xc7z020clg400-1
 
@@ -24,44 +27,47 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir D:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.cache/wt [current_project]
-set_property parent.project_path D:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.xpr [current_project]
+set_property webtalk.parent_dir D:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.cache/wt [current_project]
+set_property parent.project_path D:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part tul.com.tw:pynq-z2:part0:1.0 [current_project]
-set_property ip_repo_paths d:/project/fpga/cg_fpga_2018_1_4 [current_project]
+set_property ip_repo_paths d:/code/design/cg_fpga_2018_1_4 [current_project]
 update_ip_catalog
-set_property ip_output_repo d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.cache/ip [current_project]
+set_property ip_output_repo d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_verilog -library xil_defaultlib D:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
-add_files D:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/design_1.bd
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_axi_vdma_0_0/cg_fpga_full_axi_vdma_0_0.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_axi_vdma_0_0/cg_fpga_full_axi_vdma_0_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_axi_vdma_0_0/cg_fpga_full_axi_vdma_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_axi_intc_0_0/cg_fpga_full_cg_axi_intc_0_0.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_axi_intc_0_0/cg_fpga_full_cg_axi_intc_0_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_axi_intc_0_0/cg_fpga_full_cg_axi_intc_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_axi_uartlite_0_0/cg_fpga_full_cg_axi_uartlite_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_axi_uartlite_0_0/cg_fpga_full_cg_axi_uartlite_0_0.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_fpga_axi_gpio_i1_0/cg_fpga_full_cg_fpga_axi_gpio_i1_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_fpga_axi_gpio_i1_0/cg_fpga_full_cg_fpga_axi_gpio_i1_0.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_fpga_axi_gpio_i2_0/cg_fpga_full_cg_fpga_axi_gpio_i2_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_fpga_axi_gpio_i2_0/cg_fpga_full_cg_fpga_axi_gpio_i2_0.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_fpga_axi_gpio_o1_0/cg_fpga_full_cg_fpga_axi_gpio_o1_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_fpga_axi_gpio_o1_0/cg_fpga_full_cg_fpga_axi_gpio_o1_0.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_fpga_axi_gpio_o2_0/cg_fpga_full_cg_fpga_axi_gpio_o2_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_cg_fpga_axi_gpio_o2_0/cg_fpga_full_cg_fpga_axi_gpio_o2_0.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_processing_system7_0_0/cg_fpga_full_processing_system7_0_0.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_rst_ps7_0_100M_0/cg_fpga_full_rst_ps7_0_100M_0.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_v_vid_in_axi4s_0_0/cg_fpga_full_v_vid_in_axi4s_0_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_auto_pc_0/cg_fpga_full_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0/src/cg_fpga_full_auto_pc_1/cg_fpga_full_auto_pc_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xdc]
-set_property used_in_implementation false [get_files -all d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all D:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
+add_files D:/code/e_design/data_ram_09.coe
+add_files D:/code/e_design/Level1/inst_rom.coe
+read_verilog -library xil_defaultlib D:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+add_files D:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/design_1.bd
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_axi_vdma_0_0/cg_fpga_full_axi_vdma_0_0.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_axi_vdma_0_0/cg_fpga_full_axi_vdma_0_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_axi_vdma_0_0/cg_fpga_full_axi_vdma_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_axi_intc_0_0/cg_fpga_full_cg_axi_intc_0_0.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_axi_intc_0_0/cg_fpga_full_cg_axi_intc_0_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_axi_intc_0_0/cg_fpga_full_cg_axi_intc_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_axi_uartlite_0_0/cg_fpga_full_cg_axi_uartlite_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_axi_uartlite_0_0/cg_fpga_full_cg_axi_uartlite_0_0.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_fpga_axi_gpio_i1_0/cg_fpga_full_cg_fpga_axi_gpio_i1_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_fpga_axi_gpio_i1_0/cg_fpga_full_cg_fpga_axi_gpio_i1_0.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_fpga_axi_gpio_i2_0/cg_fpga_full_cg_fpga_axi_gpio_i2_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_fpga_axi_gpio_i2_0/cg_fpga_full_cg_fpga_axi_gpio_i2_0.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_fpga_axi_gpio_o1_0/cg_fpga_full_cg_fpga_axi_gpio_o1_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_fpga_axi_gpio_o1_0/cg_fpga_full_cg_fpga_axi_gpio_o1_0.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_fpga_axi_gpio_o2_0/cg_fpga_full_cg_fpga_axi_gpio_o2_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_cg_fpga_axi_gpio_o2_0/cg_fpga_full_cg_fpga_axi_gpio_o2_0.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_processing_system7_0_0/cg_fpga_full_processing_system7_0_0.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_rst_ps7_0_100M_0/cg_fpga_full_rst_ps7_0_100M_0.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_v_vid_in_axi4s_0_0/cg_fpga_full_v_vid_in_axi4s_0_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_auto_pc_0/cg_fpga_full_auto_pc_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_cg_fpga_0_0_1/src/cg_fpga_full_auto_pc_1/cg_fpga_full_auto_pc_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_top_0_0_1/design_1_top_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0_1/design_1_clk_wiz_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0_1/design_1_clk_wiz_0_0.xdc]
+set_property used_in_implementation false [get_files -all d:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0_1/design_1_clk_wiz_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all D:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/bd/design_1/design_1_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

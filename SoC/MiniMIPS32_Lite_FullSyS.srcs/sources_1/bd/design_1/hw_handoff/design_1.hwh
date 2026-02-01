@@ -1,9 +1,39 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Dec  7 16:19:47 2025" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Jan 31 15:37:28 2026" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
+    <PORT DIR="IO" LEFT="53" NAME="FIXED_IO_0_mio" RIGHT="0" SIGIS="undef" SIGNAME="cg_fpga_0_FIXED_IO_mio">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="cg_fpga_0" PORT="FIXED_IO_mio"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ddr_vrn" SIGIS="undef" SIGNAME="cg_fpga_0_FIXED_IO_ddr_vrn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="cg_fpga_0" PORT="FIXED_IO_ddr_vrn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ddr_vrp" SIGIS="undef" SIGNAME="cg_fpga_0_FIXED_IO_ddr_vrp">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="cg_fpga_0" PORT="FIXED_IO_ddr_vrp"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ps_srstb" SIGIS="undef" SIGNAME="cg_fpga_0_FIXED_IO_ps_srstb">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="cg_fpga_0" PORT="FIXED_IO_ps_srstb"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ps_clk" SIGIS="undef" SIGNAME="cg_fpga_0_FIXED_IO_ps_clk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="cg_fpga_0" PORT="FIXED_IO_ps_clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ps_porb" SIGIS="undef" SIGNAME="cg_fpga_0_FIXED_IO_ps_porb">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="cg_fpga_0" PORT="FIXED_IO_ps_porb"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="IO" NAME="DDR_0_cas_n" SIGIS="undef" SIGNAME="cg_fpga_0_DDR_cas_n">
       <CONNECTIONS>
         <CONNECTION INSTANCE="cg_fpga_0" PORT="DDR_cas_n"/>
@@ -77,36 +107,6 @@
     <PORT DIR="IO" LEFT="3" NAME="DDR_0_dqs_p" RIGHT="0" SIGIS="undef" SIGNAME="cg_fpga_0_DDR_dqs_p">
       <CONNECTIONS>
         <CONNECTION INSTANCE="cg_fpga_0" PORT="DDR_dqs_p"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" LEFT="53" NAME="FIXED_IO_0_mio" RIGHT="0" SIGIS="undef" SIGNAME="cg_fpga_0_FIXED_IO_mio">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="cg_fpga_0" PORT="FIXED_IO_mio"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ddr_vrn" SIGIS="undef" SIGNAME="cg_fpga_0_FIXED_IO_ddr_vrn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="cg_fpga_0" PORT="FIXED_IO_ddr_vrn"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ddr_vrp" SIGIS="undef" SIGNAME="cg_fpga_0_FIXED_IO_ddr_vrp">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="cg_fpga_0" PORT="FIXED_IO_ddr_vrp"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ps_srstb" SIGIS="undef" SIGNAME="cg_fpga_0_FIXED_IO_ps_srstb">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="cg_fpga_0" PORT="FIXED_IO_ps_srstb"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ps_clk" SIGIS="undef" SIGNAME="cg_fpga_0_FIXED_IO_ps_clk">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="cg_fpga_0" PORT="FIXED_IO_ps_clk"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ps_porb" SIGIS="undef" SIGNAME="cg_fpga_0_FIXED_IO_ps_porb">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="cg_fpga_0" PORT="FIXED_IO_ps_porb"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -464,7 +464,7 @@
         <PARAMETER NAME="C_OUTCLK_SUM_ROW5" VALUE="no_CLK_OUT5_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW6" VALUE="no_CLK_OUT6_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW7" VALUE="no_CLK_OUT7_output"/>
-        <PARAMETER NAME="C_CLKOUT1_REQUESTED_OUT_FREQ" VALUE="50.000"/>
+        <PARAMETER NAME="C_CLKOUT1_REQUESTED_OUT_FREQ" VALUE="50"/>
         <PARAMETER NAME="C_CLKOUT2_REQUESTED_OUT_FREQ" VALUE="100.000"/>
         <PARAMETER NAME="C_CLKOUT3_REQUESTED_OUT_FREQ" VALUE="100.000"/>
         <PARAMETER NAME="C_CLKOUT4_REQUESTED_OUT_FREQ" VALUE="100.000"/>
@@ -768,7 +768,7 @@
         <PARAMETER NAME="PSEN_PORT" VALUE="psen"/>
         <PARAMETER NAME="PSINCDEC_PORT" VALUE="psincdec"/>
         <PARAMETER NAME="PSDONE_PORT" VALUE="psdone"/>
-        <PARAMETER NAME="CLKOUT1_REQUESTED_OUT_FREQ" VALUE="50.000"/>
+        <PARAMETER NAME="CLKOUT1_REQUESTED_OUT_FREQ" VALUE="50"/>
         <PARAMETER NAME="CLKOUT1_REQUESTED_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="CLKOUT1_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
         <PARAMETER NAME="CLKOUT2_REQUESTED_OUT_FREQ" VALUE="100.000"/>

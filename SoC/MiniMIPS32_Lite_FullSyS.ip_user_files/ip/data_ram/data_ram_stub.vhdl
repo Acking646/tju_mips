@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Sun Dec  7 15:30:33 2025
--- Host        : LAPTOP-476JT8H0 running 64-bit major release  (build 9200)
+-- Date        : Fri Jan 30 21:37:13 2026
+-- Host        : Y000p running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               d:/project/cslab/mips/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/ip/data_ram/data_ram_stub.vhdl
+--               D:/code/e_design/SoC/MiniMIPS32_Lite_FullSyS.srcs/sources_1/ip/data_ram/data_ram_stub.vhdl
 -- Design      : data_ram
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-1

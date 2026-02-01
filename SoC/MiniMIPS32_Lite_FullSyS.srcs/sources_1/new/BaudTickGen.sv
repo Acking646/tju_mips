@@ -1,16 +1,27 @@
 module BaudTickGen(
-	input  clk, enable,
-	output logic tick  // generate a tick at the specified baud rate * oversampling
+    input  clk, enable,
+    output logic tick  // generate a tick at the specified baud rate * oversampling
 );
 parameter ClkFrequency = 50000000;
 parameter Baud = 9600;
 parameter Oversampling = 1;
 
-function integer log2(input integer v); begin log2=0; while(v>>log2) log2=log2+1; end endfunction
-localparam AccWidth = log2(ClkFrequency/Baud)+8;  // +/- 2% max timing error over a byte
-logic [AccWidth:0] Acc = 0;
-localparam ShiftLimiter = log2(Baud*Oversampling >> (31-AccWidth));  // this makes sure Inc calculation doesn't overflow
-localparam Inc = ((Baud*Oversampling << (AccWidth-ShiftLimiter))+(ClkFrequency>>(ShiftLimiter+1)))/(ClkFrequency>>ShiftLimiter);
-always @(posedge clk) if(enable) Acc <= Acc[AccWidth-1:0] + Inc[AccWidth:0]; else Acc <= Inc[AccWidth:0];
-assign tick = Acc[AccWidth];
+localparam integer BAUD_X = (Baud*Oversampling);
+localparam integer DIVISOR = (BAUD_X > 0) ? (ClkFrequency/BAUD_X) : 1;
+localparam integer CNT_W = (DIVISOR <= 1) ? 1 : $clog2(DIVISOR);
+
+logic [CNT_W-1:0] cnt;
+
+always_ff @(posedge clk) begin
+    if (!enable) begin
+        cnt <= '0;
+        tick <= 1'b0;
+    end else if (cnt == DIVISOR-1) begin
+        cnt <= '0;
+        tick <= 1'b1;
+    end else begin
+        cnt <= cnt + 1'b1;
+        tick <= 1'b0;
+    end
+end
 endmodule
